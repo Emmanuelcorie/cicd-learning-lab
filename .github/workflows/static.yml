@@ -31,6 +31,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Test website files
+        run: |
+          test -s index.html
+          grep -qi "<html" index.html
+          grep -qi "<h1>" index.html
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
